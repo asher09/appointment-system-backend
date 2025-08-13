@@ -8,7 +8,7 @@ const router = express.Router();
 
 router.post('/availability', authMiddleware, createAvailability)
 
-router.get('/available', authMiddleware, getAvailableAppointments)
+router.get('/available/:id', authMiddleware, getAvailableAppointments)
 
 router.put('/book/:id', authMiddleware, bookAppointment)
 

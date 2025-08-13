@@ -7,7 +7,7 @@ dotenv.config();
 import appointmentRoute from './routes/appointmentRoute'
 import authRoute from './routes/authRoute'
 
-const app = express();
+export const app = express();
 app.use(express.json());
 const PORT = 3000;
 
@@ -34,4 +34,4 @@ connectDB().then(() => {
 });
 
 app.use('/api/auth', authRoute);
-// app.use('/api/appointments', appointmentRoute);
+app.use('/api/appointments', appointmentRoute);
