@@ -40,8 +40,6 @@ describe('Appointment System E2E Flow', () => {
       .expect(200);
 
     studentA1Token = res.body.token;
-    // Decode token to get user id if not returned in body
-    // For this codebase, only token is returned, so you may need to fetch user id separately if needed
   });
 
   it('ProfessorP1 registers and logs in', async () => {
@@ -56,7 +54,6 @@ describe('Appointment System E2E Flow', () => {
       .expect(200);
 
     professorP1Token = res.body.token;
-    // Same note as above for user id
   });
 
   it('ProfessorP1 creates two available slots', async () => {
@@ -78,8 +75,6 @@ describe('Appointment System E2E Flow', () => {
   });
 
   it('StudentA1 views available slots for ProfessorP1', async () => {
-    // You need professor's user ID for this route
-    // Let's fetch it by querying the User model (or you can hardcode if you know it)
     if (!mongoose.connection.db) {
       throw new Error('database connection is not established');
     }
@@ -102,7 +97,6 @@ describe('Appointment System E2E Flow', () => {
       .expect(200);
 
     expect(res.body.appointment.status).toBe('booked');
-    // Optionally check student field if you fetch studentA1Id
   });
 
   it('StudentA2 registers, logs in, and books appointment T2', async () => {
